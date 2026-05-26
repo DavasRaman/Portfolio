@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Davas Raman | Marine Ecologist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0B3D5E;
+  --teal: #1A7A8A;
+  --teal-light: #2A9AAF;
+  --sand: #F7F4EF;
+  --sand-dark: #EDE9E1;
+  --ink: #1C2B35;
+  --ink-mid: #3D5560;
+  --ink-light: #6B8A96;
+  --white: #FFFFFF;
+  --accent: #C8873A;
+  --nav-h: 64px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  background: rgba(11,61,94,0.97);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  border-bottom: 1px solid rgba(168,212,220,0.15);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.nav-brand span { color: #A8D4DC; }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: #A8D4DC; }
+
+/* ── SECTIONS ── */
+section { min-height: 100vh; padding: calc(var(--nav-h) + 4rem) 0 5rem; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
+
+/* ── HERO ── */
+#home {
+  background: var(--navy);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(26,122,138,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(200,135,58,0.08) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: linear-gradient(rgba(168,212,220,1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(168,212,220,1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #A8D4DC;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.hero-name em { font-style: italic; color: #A8D4DC; }
+
+.hero-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+
+.hero-tag {
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border: 1px solid rgba(168,212,220,0.3);
+  border-radius: 20px;
+  color: #A8D4DC;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--teal);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+
+/* ── SECTION HEADERS ── */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+}
+
+.section-title em { font-style: italic; color: var(--teal); }
+
+/* ── ABOUT ── */
+#about { background: var(--white); }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+.about-text p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--ink-mid);
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-sidebar { display: flex; flex-direction: column; gap: 1rem; }
+
+.sidebar-card {
+  background: var(--sand);
+  border-left: 3px solid var(--teal);
+  padding: 1rem 1.25rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.sidebar-card-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.sidebar-card-val {
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.skills-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+
+.skill-pill {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  background: var(--sand-dark);
+  color: var(--ink-mid);
+  border-radius: 20px;
+  border: 1px solid rgba(26,122,138,0.15);
+}
+
+/* ── PLACEMENT ── */
+#placement { background: var(--sand); }
+
+.placement-intro {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--ink-mid);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+}
+
+.placement-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap: 1px;
+  background: var(--sand-dark);
+  border: 1px solid var(--sand-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.meta-cell {
+  background: var(--white);
+  padding: 1rem 1.25rem;
+}
+
+.meta-cell-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.meta-cell-val {
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.divider-label {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin: 2.5rem 0 1rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+
+.divider-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sand-dark);
+}
+
+.reflection-block {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  border-left: 4px solid var(--teal);
+}
+
+.reflection-block p {
+  font-size: 0.93rem;
+  line-height: 1.95;
+  color: var(--ink-mid);
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+
+.reflection-block p:last-child { margin-bottom: 0; }
+
+/* ── DELIVERABLES ── */
+#deliverables { background: var(--white); }
+
+.del-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+.del-card {
+  background: var(--sand);
+  border-radius: 8px;
+  padding: 1.75rem;
+  border-top: 3px solid var(--teal);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.del-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(11,61,94,0.08); }
+
+.del-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--teal);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.del-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.del-desc {
+  font-size: 0.83rem;
+  line-height: 1.75;
+  color: var(--ink-mid);
+  font-weight: 300;
+}
+
+/* ── RESUME ── */
+#resume { background: var(--sand); }
+
+.resume-section { margin-bottom: 2.5rem; }
+
+.resume-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 500;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--sand-dark);
+  margin-bottom: 1.25rem;
+}
+
+.resume-entry { margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; }
+
+.resume-entry-main {}
+
+.resume-role {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.resume-org {
+  font-size: 0.82rem;
+  color: var(--teal);
+  margin-bottom: 0.4rem;
+}
+
+.resume-desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  font-weight: 300;
+}
+
+.resume-date {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.edu-entry { margin-bottom: 1rem; }
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--navy);
+  min-height: 50vh;
+  display: flex; align-items: center;
+}
+
+#contact .section-title { color: #fff; }
+#contact .section-label { color: #A8D4DC; }
+
+.contact-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.contact-link {
+  font-size: 0.85rem;
+  color: #A8D4DC;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+
+.contact-link-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  min-width: 80px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #071f30;
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+footer p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.5px;
+}
+
+/* ── FADE IN ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 700px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.7rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .del-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 1.5rem; }
+  .hero-name { font-size: 2.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Davas <span>Raman</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#placement">Placement</a></li>
+    <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">WIL Professional Portfolio &nbsp;·&nbsp; 3900ESC &nbsp;·&nbsp; 2026</p>
+    <h1 class="hero-name">Davas<br><em>Raman</em></h1>
+    <p class="hero-desc">Marine ecologist, conservation practitioner, and GIS specialist working across the reefs and estuaries of Queensland and Fiji. Driven by the belief that science only matters when the communities it serves are part of building it.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Marine Ecology</span>
+      <span class="hero-tag">Habitat Restoration</span>
+      <span class="hero-tag">GIS &amp; Spatial Mapping</span>
+      <span class="hero-tag">OzFish Unlimited</span>
+      <span class="hero-tag">Freediving</span>
+      <span class="hero-tag">Fiji &amp; Queensland</span>
+    </div>
+    <a href="#about" class="btn-primary">Explore Portfolio</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label fade-up">About Me</p>
+    <h2 class="section-title fade-up">Jack of all trades,<br><em>thread of one ocean.</em></h2>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p>I am a final-year Bachelor of Marine Science (Marine Ecology) student at Griffith University, originally from Labasa, Vanua Levu, Fiji, and based on the Gold Coast. I have spent the better part of my life moving between two worlds: the coral reefs and mangrove coastlines of Fiji that shaped who I am, and the academic and professional environment of Queensland that has given me the tools to do something about what I care about.</p>
+        <p>I am a recreational freediver, a bush restoration worker, a coral reef researcher, and a GIS mapping specialist. My experience spans cetacean biological sampling across two humpback whale seasons with SOPOPP, conservation volunteering at Elephant Nature Park in Thailand, independent orangutan reforestation along the Kinabatangan River in Borneo, and ongoing habitat restoration work across south-east Queensland with OzFish Unlimited as a Young Leader and Volunteer Habitat Officer.</p>
+        <p>I am not the kind of person who specialises in one thing and stays there. I am most useful at the edges: where ecology meets community, where GIS meets fieldwork, and where Fiji meets Queensland. My long-term goal is to return to Labasa and contribute to community-based coastal restoration combining mangrove rehabilitation, blue carbon, fisheries linkages, and sustainable aquaculture in partnership with villages holding customary coastal rights.</p>
+        <div class="skills-grid">
+          <span class="skill-pill">QGIS / ArcGIS Online</span>
+          <span class="skill-pill">Estuarine Ecology</span>
+          <span class="skill-pill">Coral Reef Science</span>
+          <span class="skill-pill">Community Engagement</span>
+          <span class="skill-pill">Habitat Restoration</span>
+          <span class="skill-pill">Field Surveys</span>
+          <span class="skill-pill">Scientific Writing</span>
+          <span class="skill-pill">R / Data Analysis</span>
+          <span class="skill-pill">Freediving</span>
+        </div>
+      </div>
+      <div class="about-sidebar fade-up">
+        <div class="sidebar-card">
+          <p class="sidebar-card-label">Degree</p>
+          <p class="sidebar-card-val">Bachelor of Marine Science (Marine Ecology), Griffith University — Final Year</p>
+        </div>
+        <div class="sidebar-card">
+          <p class="sidebar-card-label">Current Research</p>
+          <p class="sidebar-card-val">Independent CoTS research special topic under A/Prof Guillermo Diaz-Pulido, focusing on outbreak dynamics on the Great Barrier Reef and in Fiji</p>
+        </div>
+        <div class="sidebar-card">
+          <p class="sidebar-card-label">Placement</p>
+          <p class="sidebar-card-val">OzFish Unlimited — Gold Coast Chapter. Young Leader and Volunteer Habitat Officer, supervised by Erica Leal and Robbie Porter</p>
+        </div>
+        <div class="sidebar-card">
+          <p class="sidebar-card-label">Origin</p>
+          <p class="sidebar-card-val">Labasa, Vanua Levu, Fiji. Australian and Fijian citizen, based in Mermaid Waters, Gold Coast</p>
+        </div>
+        <div class="sidebar-card">
+          <p class="sidebar-card-label">Career Goal</p>
+          <p class="sidebar-card-val">Honours, then PhD in coastal and estuarine ecology. Long-term: community-based mangrove and blue economy restoration in Labasa, Fiji</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEMENT -->
+<section id="placement">
+  <div class="container">
+    <p class="section-label fade-up">Placement Synopsis &amp; Reflection</p>
+    <h2 class="section-title fade-up">OzFish Unlimited<br><em>Gold Coast Chapter</em></h2>
+
+    <div class="placement-meta fade-up">
+      <div class="meta-cell">
+        <p class="meta-cell-label">Organisation</p>
+        <p class="meta-cell-val">OzFish Unlimited</p>
+      </div>
+      <div class="meta-cell">
+        <p class="meta-cell-label">Chapter</p>
+        <p class="meta-cell-val">Gold Coast, SEQ</p>
+      </div>
+      <div class="meta-cell">
+        <p class="meta-cell-label">Role</p>
+        <p class="meta-cell-val">Young Leader / Volunteer Habitat Officer</p>
+      </div>
+      <div class="meta-cell">
+        <p class="meta-cell-label">Hours</p>
+        <p class="meta-cell-val">150 hours</p>
+      </div>
+      <div class="meta-cell">
+        <p class="meta-cell-label">Supervisors</p>
+        <p class="meta-cell-val">Erica Leal &amp; Robbie Porter</p>
+      </div>
+    </div>
+
+    <div class="divider-label fade-up">Synopsis</div>
+
+    <p class="placement-intro fade-up">OzFish Unlimited is a national conservation organisation dedicated to restoring and protecting Australia's recreational fishing environments through community-led habitat restoration. The Gold Coast chapter operates across key estuarine and coastal systems on Yugambeh Country, targeting degraded habitats through mangrove replanting, oyster reef construction, tangle bin monitoring, and community education: interventions increasingly recognised as critical to the recovery of fish nursery habitats in modified urban waterways (Barbier et al., 2011).</p>
+
+    <p class="placement-intro fade-up">As an OzFish Young Leader, I completed 150 hours across a range of roles under the supervision of Erica Leal and Robbie Porter. The majority of my time was devoted to geospatial analysis and mapping, producing QGIS-based restoration site maps across multiple sites throughout Queensland, covering mangrove rehabilitation extents, oyster and fish habitat restoration zones, and print-ready map exports formatted for government and funding proposals. Sites spanned northern and south-east Queensland, including Eprapah Creek and a range of locations assessed as candidates for future oyster reef restoration, supporting both local chapter operations and broader regional planning. In addition, I proposed and began implementing an ArcGIS Online system for the SEQ team, designed to enable live data collection by volunteers in the field via Field Maps. This initiative has since gained traction and I am now leading its continued development and rollout within the chapter. I also coordinated and participated in community working bees, contributing to habitat restoration activities on the ground and helping to build volunteer capacity within the chapter. Additional fieldwork included a fish kill survey at Mudgeeraba Creek, assessing water quality and species impact following an acute pollution event, and fish surveys conducted to support ongoing habitat assessment for a fish later initiative.</p>
+
+    <div class="divider-label fade-up">Critical Reflection</div>
+
+    <div class="reflection-block fade-up">
+      <p>This placement significantly deepened my practical proficiency in GIS. Prior to OzFish, I had developed foundational QGIS skills through university coursework, but working within a real conservation organisation required me to produce outputs that met professional standards: accurate, print-ready, and immediately usable by non-GIS staff and stakeholders. Producing restoration maps across Queensland taught me to think critically about symbology, scale, and data communication in a way that academic exercises rarely demand. Proposing and beginning to implement the ArcGIS Online system pushed me further still. I had to understand not only the technical capabilities of the platform but how it could realistically be integrated into a volunteer-run organisation with limited resources and variable digital literacy.</p>
+      <p>Beyond the technical, this placement gave me a much clearer understanding of how NGOs function and why community engagement is not peripheral to conservation. It is the mechanism. I observed firsthand that habitat restoration at the scale OzFish operates depends entirely on volunteer buy-in, local trust, and sustained community participation. Working bees were as much about building relationships as they were about planting mangroves. This shifted how I think about my own long-term ambitions in coastal restoration in Fiji: technical knowledge is necessary but insufficient without the community structures to sustain it.</p>
+      <p>My degree supported this experience in meaningful ways. Estuarine ecology coursework gave me the conceptual grounding to contextualise what I was mapping. Understanding why Eprapah Creek's mangrove fringe matters for juvenile fish recruitment, or what a fish kill event signals about catchment health, made me a more effective contributor than a GIS technician alone could be. Moving forward, I intend to pursue a pathway into coastal and estuarine research, ideally through Honours and then a PhD, building on the applied skills and professional relationships this placement has established.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="container">
+    <p class="section-label fade-up">Placement Deliverables</p>
+    <h2 class="section-title fade-up">Work produced<br><em>during placement.</em></h2>
+    <div class="del-grid">
+      <div class="del-card fade-up">
+        <div class="del-number">01</div>
+        <h3 class="del-title">Queensland GIS Restoration Maps</h3>
+        <p class="del-desc">QGIS-produced site maps covering multiple restoration sites across Queensland, including mangrove rehabilitation and oyster habitat zones. Outputs spanned local sites such as Eprapah Creek through to candidate oyster reef locations across northern and south-east Queensland, formatted at 300 DPI for government and funding submissions.</p>
+      </div>
+      <div class="del-card fade-up">
+        <div class="del-number">02</div>
+        <h3 class="del-title">ArcGIS Online System Implementation</h3>
+        <p class="del-desc">Proposed and began implementing an ArcGIS Online system for the SEQ team to enable live volunteer data collection via Field Maps. The initiative has since gained momentum and I am now leading its ongoing development and rollout within the chapter, representing a lasting operational improvement for OzFish Gold Coast.</p>
+      </div>
+      <div class="del-card fade-up">
+        <div class="del-number">03</div>
+        <h3 class="del-title">Community Working Bees</h3>
+        <p class="del-desc">Coordination and active participation in habitat restoration working bees across Gold Coast sites, engaging community volunteers in hands-on mangrove replanting and oyster reef construction. These events served both ecological and community-building functions, strengthening the chapter's volunteer base and local conservation presence.</p>
+      </div>
+      <div class="del-card fade-up">
+        <div class="del-number">04</div>
+        <h3 class="del-title">Fish Kill &amp; Habitat Surveys</h3>
+        <p class="del-desc">Field survey at Mudgeeraba Creek following an acute pollution event, assessing water quality indicators and species impact. Additional fish surveys conducted to support habitat assessment for a fish later program initiative, contributing observational data to ongoing estuarine monitoring across the Gold Coast chapter's site network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <p class="section-label fade-up">Resume</p>
+    <h2 class="section-title fade-up">Experience &amp;<br><em>Education</em></h2>
+
+    <div class="resume-section fade-up">
+      <p class="resume-section-title">Professional Experience</p>
+
+      <div class="resume-entry">
+        <div class="resume-entry-main">
+          <p class="resume-role">Young Leader / Volunteer Habitat Officer</p>
+          <p class="resume-org">OzFish Unlimited — Gold Coast Chapter</p>
+          <p class="resume-desc">150-hour WIL placement and continuing volunteer role. GIS restoration mapping across Queensland, ArcGIS Online system implementation for SEQ team, community working bee coordination, fish kill and habitat surveys.</p>
+        </div>
+        <p class="resume-date">2025 – Present</p>
+      </div>
+
+      <div class="resume-entry">
+        <div class="resume-entry-main">
+          <p class="resume-role">Vegetation Team Member (Casual)</p>
+          <p class="resume-org">Biosecurity Australia</p>
+          <p class="resume-desc">Bush restoration and trail maintenance across south-east Queensland sites.</p>
+        </div>
+        <p class="resume-date">2024 – Present</p>
+      </div>
+
+      <div class="resume-entry">
+        <div class="resume-entry-main">
+          <p class="resume-role">Cetacean Biological Sampling Volunteer</p>
+          <p class="resume-org">SOPOPP — Southern Ocean Pacific Ocean Pelagic Programme</p>
+          <p class="resume-desc">Biological sampling across two humpback whale seasons, contributing to population and health data collection in Australian waters.</p>
+        </div>
+        <p class="resume-date">2023 – Present</p>
+      </div>
+
+      <div class="resume-entry">
+        <div class="resume-entry-main">
+          <p class="resume-role">Conservation Volunteer</p>
+          <p class="resume-org">Elephant Nature Park — Chiang Mai, Thailand</p>
+          <p class="resume-desc">Hands-on wildlife conservation and habitat management in an elephant sanctuary and rescue environment.</p>
+        </div>
+        <p class="resume-date">2025</p>
+      </div>
+
+      <div class="resume-entry">
+        <div class="resume-entry-main">
+          <p class="resume-role">Independent Orangutan Reforestation Volunteer</p>
+          <p class="resume-org">Kinabatangan River, Borneo</p>
+          <p class="resume-desc">Self-directed reforestation and habitat restoration work along the Kinabatangan River corridor, supporting orangutan habitat connectivity.</p>
+        </div>
+        <p class="resume-date">2025</p>
+      </div>
+    </div>
+
+    <div class="resume-section fade-up">
+      <p class="resume-section-title">Research</p>
+      <div class="resume-entry">
+        <div class="resume-entry-main">
+          <p class="resume-role">Independent Research Special Topic — CoTS Outbreak Dynamics</p>
+          <p class="resume-org">Griffith University — supervised by A/Prof Guillermo Diaz-Pulido</p>
+          <p class="resume-desc">Literature review and research design focused on crown-of-thorns starfish outbreak dynamics on the Great Barrier Reef and in Fiji, with emphasis on predator control as a primary driver in the Fijian context.</p>
+        </div>
+        <p class="resume-date">T1 2026 (12 weeks)</p>
+      </div>
+    </div>
+
+    <div class="resume-section fade-up">
+      <p class="resume-section-title">Education</p>
+      <div class="edu-entry">
+        <div class="resume-entry">
+          <div class="resume-entry-main">
+            <p class="resume-role">Bachelor of Marine Science (Marine Ecology)</p>
+            <p class="resume-org">Griffith University — Gold Coast Campus</p>
+            <p class="resume-desc">Final year. Key areas: estuarine ecology, coral reef science, applied data science, conservation biology, GIS and spatial analysis.</p>
+          </div>
+          <p class="resume-date">2022 – 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-section fade-up">
+      <p class="resume-section-title">Skills</p>
+      <div class="skills-grid">
+        <span class="skill-pill">QGIS</span>
+        <span class="skill-pill">ArcGIS Online</span>
+        <span class="skill-pill">Field Maps</span>
+        <span class="skill-pill">R / ANOVA</span>
+        <span class="skill-pill">Estuarine Ecology</span>
+        <span class="skill-pill">Coral Reef Science</span>
+        <span class="skill-pill">Habitat Restoration</span>
+        <span class="skill-pill">Community Engagement</span>
+        <span class="skill-pill">Scientific Writing</span>
+        <span class="skill-pill">Field Surveys</span>
+        <span class="skill-pill">Water Quality Assessment</span>
+        <span class="skill-pill">Freediving</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label fade-up">Contact</p>
+    <h2 class="section-title fade-up">Get in<br><em>touch.</em></h2>
+    <p class="contact-desc fade-up">Currently based on the Gold Coast, available for research collaborations, conservation work, and opportunities in coastal and estuarine ecology across Queensland and the Pacific.</p>
+    <div class="contact-links fade-up">
+      <div class="contact-link">
+        <span class="contact-link-label">University</span>
+        <span>Griffith University — Gold Coast Campus</span>
+      </div>
+      <div class="contact-link">
+        <span class="contact-link-label">Placement</span>
+        <span>OzFish Unlimited — Gold Coast Chapter</span>
+      </div>
+      <div class="contact-link">
+        <span class="contact-link-label">Location</span>
+        <span>Mermaid Waters, Gold Coast, QLD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Davas Raman — WIL Professional Portfolio 2026</p>
+  <p>3900ESC — Griffith University</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
